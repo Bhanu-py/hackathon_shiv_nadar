@@ -1,4 +1,4 @@
-# hackathon_shiv_nadar
+# Penalised Regression Techniques
 Hackathon conducted by machinehack.com on the prediction of sales of a commodity by Multivariate regression methods
 
 
