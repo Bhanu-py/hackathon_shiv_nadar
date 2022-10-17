@@ -14,8 +14,6 @@ table(df$Item_Type)
 str(df)
 # df$Sales <- scale(df$Sales, center=TRUE, scale = TRUE)
 
-
-
 boxplot(df$Item_MRP)
 
 q <- quantile(df$Item_MRP, probs = c(0.25, 0.75))
@@ -74,11 +72,7 @@ length(Y)
 
 table(XTrain$Item_Type)
 
-
-
 ############################## The Ridge #################################################
-
-
 ridge <- glmnet(
   x = XTrain,
   y = YTrain,
@@ -115,8 +109,6 @@ dim(testdf)
 # testdf$age <- (2021 - testdf$Outlet_Year)
 # testdf <- select(testdf, -Outlet_Year)
 
-
-
 predicted <- data.frame(
   Sales = predict(cv_ridge,
                  newx = as.matrix(testdf),
@@ -131,9 +123,6 @@ write.csv(predicted, 'data/submission.csv')
 
 
 ############################## The Lasso #################################################
-
-
-
 lasso <- glmnet(
   x = XTrain,
   y = YTrain,
@@ -178,7 +167,6 @@ head(predicted)
 write.csv(predicted, 'submission.csv')
 
 ############################## The Elastic Net #################################################
-
 mElastic  <- glmnet(
   x = XTrain,
   y = YTrain,
@@ -222,10 +210,7 @@ head(predicted)
 
 write.csv(predicted, 'submission.csv')
 
-
 ##################### Linear Model #########################################################
-
-
 # opt_data1 <- data.frame(YTrain, XTrain[, 1:ncol(XTrain)])
 # sd<- opt_data1
 # sd[sapply(opt_data1, is.numeric)] <- scale(opt_data1[sapply(opt_data1, is.numeric)])
@@ -258,12 +243,6 @@ write.csv(predicted, 'submission.csv')
 # 
 # 
 # mean(model1$residuals ** 2)
-
-
-
-
-
-
 
 # 
 # eval_results <- function(true, predicted, df) {
